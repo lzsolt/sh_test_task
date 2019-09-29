@@ -53,7 +53,7 @@ $config = [
             'rules' => [
                 'POST item' => 'item/create',
                 'GET stat' => 'item/stat',
-                'GET event_status/<eventId:\w+>' => 'item/event-status',
+                'GET event_status' => 'item/event-status',
             ],
         ],
     ],

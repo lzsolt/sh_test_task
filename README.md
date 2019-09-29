@@ -37,10 +37,8 @@ http://stylehub/stat
 ```
 The response contain the items count grouped by months and years.
 
-##### 3) Sent message status by event ID
-You can check the uploaded item message status in this endpoint:
+##### 3) Sent messages status by event ID
+You can check the uploaded item message's status in this endpoint:
 ```
-http://stylehub/event_status/[event_id]
+http://stylehub/event_status
 ```
-If you get a 'event not exists' that's mean is the message worked earlier or not would be uploaded.
-If the message is in queue in this case you can see the number of try.

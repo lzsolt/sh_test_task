@@ -81,14 +81,17 @@ class ItemController extends Controller
      */
     public function actionEventStatus(): array
     {
-        if ($model = Queue::findOne(['id' => Yii::$app->request->get('eventId')])) {
-            $result = [
-                'event_id' => $model->getAttribute('id'),
-                'try_processing_num' => $model->getAttribute('fail_count'),
-                'message' => $model->getAttribute('fail_count') >= $model::_TRY_NUM ? 'Too much attempts.' : 'Subsequent processing.'
-            ];
-        } else {
-            $result = ['message' => 'Event not exist. Maybe it was processed earlier.'];
+        $models = Queue::find()->all();
+        $result = [];
+
+        if ($models) {
+            foreach ($models as $model) {
+                $result[] = [
+                    'event_id' => $model->getAttribute('id'),
+                    'try_processing_num' => $model->getAttribute('fail_count'),
+                    'message' => $model->getAttribute('fail_count') >= $model::_TRY_NUM ? 'Too much attempts.' : 'Subsequent processing.'
+                ];
+            }
         }
 
         Yii::$app->response->format = Response::FORMAT_JSON;
