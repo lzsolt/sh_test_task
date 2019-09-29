@@ -10,7 +10,7 @@ After that go to your MySql console and run the next command:
 ```
 CREATE DATABASE stylehub;
 ```
-Now go to the project root map and run this command:
+Now go to the project root map and run this commands:
 ```
 composer up
 yii migrate
