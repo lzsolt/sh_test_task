@@ -12,6 +12,7 @@ CREATE DATABASE stylehub;
 ```
 Now go to the project root map and run this command:
 ```
+composer up
 yii migrate
 ```
 
